@@ -1,0 +1,6 @@
+for: https://adventofcode.com/2016/day/11
+
+possible combinations:
+
+- rtg + rtg -> ok
+- rtg + compatible
