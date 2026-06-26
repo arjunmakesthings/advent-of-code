@@ -12,4 +12,3 @@ function get_floor(instructions) {
   }
   return curr_floor;
 }
-cd
