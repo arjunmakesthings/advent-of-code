@@ -4,7 +4,7 @@ const input = fs.readFileSync("../../inputs/2015/day-3.txt", "utf-8");
 let santa_pos = { x: 0, y: 0 };
 let houses_visited = [];
 
-function solve(input) {
+function solve_1(input) {
 	let one_present_houses = 0;
 	for (let i = 0; i < input.length; i++) {
 		//increment position:
@@ -47,4 +47,11 @@ function solve(input) {
 	return one_present_houses; 
 }
 
-console.log(solve(input)); 
+function solve_2(input) {
+	
+}
+
+console.log("part 1: " + solve_1(input)); 
+
+console.log("part 2: " + solve_2(input));
+
