@@ -88,10 +88,54 @@ function solve_1(instr) {
   return total_lights_on;
 }
 
+function solve_2(instr) {
+  let grid = [];
+  let total_brightness = 0;
+  //initialise a grid with all lights turned off:
+  for (let y = 0; y < 1000; y++) {
+    for (let x = 0; x < 1000; x++) {
+      //push brightness here as 0:
+      grid.push([x, y, 0]);
+    }
+  }
+
+  for (let i = 0; i < instr.length; i++) {
+    //for a given set of instructions, perform the following:
+
+    for (let x = instr[i].start.x; x <= instr[i].end.x; x++) {
+      for (let y = instr[i].start.y; y <= instr[i].end.y; y++) {
+        const idx = get_index(x, y);
+
+        if (instr[i].o == 0) {
+          grid[idx][2]--;
+
+          //limit to 0:
+          if (grid[idx][2] < 0) {
+            grid[idx][2] = 0;
+          }
+        } else if (instr[i].o == 1) {
+          grid[idx][2]++;
+        } else if (instr[i].o == 2) {
+          grid[idx][2] += 2;
+        }
+      }
+    }
+  }
+
+  for (let i = 0; i < grid.length; i++) {
+	total_brightness+=grid[i][2]; 
+  }
+
+  return total_brightness;
+}
+
 //helper:
 function get_index(x, y) {
   //for an x,y coordinate, return an index in the grid array:
   return y * 1000 + x;
 }
 
-console.log(solve_1(parse(input)));
+console.log(
+  "part 1: " + solve_1(parse(input)),
+  "part 2: " + solve_2(parse(input)),
+);
