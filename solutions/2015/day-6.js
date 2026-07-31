@@ -3,7 +3,7 @@ const input = fs.readFileSync("../../inputs/2015/day-6.txt", "utf-8");
 
 function parse(txt) {
   const operations = {
-    toggle: 2,
+    "toggle": 2,
     "turn off": 0,
     "turn on": 1,
   };
